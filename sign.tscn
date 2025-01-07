@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://jtrr7d3unpkb"]
+
+[ext_resource type="Texture2D" uid="uid://4wjtucew58cu" path="res://house-ext.png" id="1_42wuw"]
+[ext_resource type="Script" path="res://sign.gd" id="1_o2lyd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikf8q"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbmcd"]
+atlas = ExtResource("1_42wuw")
+region = Rect2(0, 72, 16, 16)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_o2lyd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ikf8q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_gbmcd")

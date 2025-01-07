@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbu8hkcodyqp8"]
+
+[ext_resource type="Texture2D" uid="uid://c85mht05js5k4" path="res://textbox.png" id="1_p3g0q"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p3g0q")
+region_enabled = true
+region_rect = Rect2(0, 0, 56, 40)
