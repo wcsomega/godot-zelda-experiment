@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=4 uid="uid://c326kk5cyylnr"]
 
-[ext_resource type="Script" path="res://house_int_test.gd" id="1_3d6ke"]
-[ext_resource type="TileSet" uid="uid://imqkpyhow56l" path="res://house_ext.tres" id="1_qb22q"]
-[ext_resource type="PackedScene" uid="uid://bubwlqgalmnxg" path="res://player_char.tscn" id="2_cs14d"]
+[ext_resource type="Script" path="res://Levels/house_int_test/house_int_test.gd" id="1_3d6ke"]
+[ext_resource type="TileSet" uid="uid://imqkpyhow56l" path="res://Tilemaps/house_ext.tres" id="1_qb22q"]
+[ext_resource type="PackedScene" uid="uid://bubwlqgalmnxg" path="res://Entities/player_char/player_char.tscn" id="2_cs14d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_elw3v"]
 size = Vector2(16, 16)

@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=4 uid="uid://bahjcfxeskdh6"]
 
-[ext_resource type="TileSet" uid="uid://imqkpyhow56l" path="res://house_ext.tres" id="1_0c6c6"]
-[ext_resource type="Script" path="res://house_ext_test.gd" id="1_457ch"]
-[ext_resource type="PackedScene" uid="uid://bubwlqgalmnxg" path="res://player_char.tscn" id="2_c0sci"]
-[ext_resource type="Script" path="res://player_cam.gd" id="3_dy28w"]
-[ext_resource type="PackedScene" uid="uid://jtrr7d3unpkb" path="res://sign.tscn" id="3_gjaul"]
-[ext_resource type="PackedScene" uid="uid://b54d714vdi0t2" path="res://rock.tscn" id="4_sqwy2"]
-[ext_resource type="PackedScene" uid="uid://cw06dyotjcb1a" path="res://shrub.tscn" id="5_n1hd4"]
+[ext_resource type="TileSet" uid="uid://imqkpyhow56l" path="res://Tilemaps/house_ext.tres" id="1_0c6c6"]
+[ext_resource type="Script" path="res://Levels/house_ext_test/house_ext_test.gd" id="1_457ch"]
+[ext_resource type="PackedScene" uid="uid://bubwlqgalmnxg" path="res://Entities/player_char/player_char.tscn" id="2_c0sci"]
+[ext_resource type="Script" path="res://Entities/player_char/player_cam.gd" id="3_dy28w"]
+[ext_resource type="PackedScene" uid="uid://jtrr7d3unpkb" path="res://Entities/sign/sign.tscn" id="3_gjaul"]
+[ext_resource type="PackedScene" uid="uid://b54d714vdi0t2" path="res://Entities/rock/rock.tscn" id="4_sqwy2"]
+[ext_resource type="PackedScene" uid="uid://cw06dyotjcb1a" path="res://Entities/shrub/shrub.tscn" id="5_n1hd4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cpjy"]
 size = Vector2(16, 16)
@@ -36,6 +36,7 @@ position = Vector2(122, 224)
 
 [node name="sign" parent="." instance=ExtResource("3_gjaul")]
 position = Vector2(128, 192)
+text = "This sign intentionally left blank."
 
 [node name="rock_1" parent="." instance=ExtResource("4_sqwy2")]
 position = Vector2(88, 208)
