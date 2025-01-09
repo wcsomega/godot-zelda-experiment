@@ -8,24 +8,24 @@ enum Direction {
 }
 
 var speed = 90
+const INTERACT_DISTANCE = 8.5
 
 @onready var sprite = $AnimatedSprite2D
-@onready var ray = $RayCast2D
+@onready var interact_ray = $RayCast2D
 var last_direction = Direction.DOWN
 var last_held_dir = Direction.DOWN
 var is_held_dir = false
 
 func _process(_delta):
-	if Input.is_action_just_pressed("interact") && ray.is_colliding():
-		var o = ray.get_collider()
+	#Test if there is an interactable object in front of the player
+	#if they are pressing the interact button, call the on_interact
+	#method on the interactable object
+	if Input.is_action_just_pressed("interact") && interact_ray.is_colliding():
+		var o = interact_ray.get_collider()
 		if o.has_method("on_interact"):
 			o.on_interact()
-		#var ray_params = PhysicsRayQueryParameters2D.create(position, position + Vector2(0, 16))
-		#var ray_result = get_world_2d().direct_space_state.intersect_ray(ray_params)
-		#if ray_result && ray_result.collider.has_method("on_interact"):
-		#	ray_result.collider.on_interact()
 	
-	
+	#This checks if a previously held direction has been released
 	if is_held_dir:
 		if last_held_dir == Direction.UP && !Input.is_action_pressed("move_up"):
 			is_held_dir = false
@@ -36,6 +36,10 @@ func _process(_delta):
 		elif last_held_dir == Direction.RIGHT && !Input.is_action_pressed("move_right"):
 			is_held_dir = false
 	
+	#When moving, we want the player character to always face the first held down
+	#direction even when another direction gets pressed. For example, if the player
+	#first holds up and then also holds right, we want the player character to face
+	#up until the up button is released.
 	var movement = Vector2.ZERO
 	var is_walking = false
 	if Input.is_action_pressed("move_up"):
@@ -70,6 +74,8 @@ func _process(_delta):
 	velocity = movement.normalized() * speed
 	move_and_slide()
 	
+	#Play the correct animation based on whether player character is walking
+	#or not and which direction they're facing
 	if is_walking:
 		match last_direction:
 			Direction.RIGHT:
@@ -91,13 +97,14 @@ func _process(_delta):
 			Direction.DOWN:
 				sprite.play("idle_down")
 	
+	#Set the direction of the interaction ray based on direction player char is facing
 	match last_direction:
 		Direction.UP:
-			ray.target_position = Vector2.UP * 8.5
+			interact_ray.target_position = Vector2.UP * INTERACT_DISTANCE
 		Direction.DOWN:
-			ray.target_position = Vector2.DOWN * 8.5
+			interact_ray.target_position = Vector2.DOWN * INTERACT_DISTANCE
 		Direction.LEFT:
-			ray.target_position = Vector2.LEFT * 8.5
+			interact_ray.target_position = Vector2.LEFT * INTERACT_DISTANCE
 		Direction.RIGHT:
-			ray.target_position = Vector2.RIGHT * 8.5
+			interact_ray.target_position = Vector2.RIGHT * INTERACT_DISTANCE
  
