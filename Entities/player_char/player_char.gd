@@ -10,11 +10,20 @@ enum Direction {
 var speed = 90
 const INTERACT_DISTANCE = 8.5
 
+var health = 20; #each heart is 4 hp so this is 10 hearts
+var max_health = 40;
+
 @onready var sprite = $AnimatedSprite2D
 @onready var interact_ray = $RayCast2D
 var last_direction = Direction.DOWN
 var last_held_dir = Direction.DOWN
 var is_held_dir = false
+
+func on_heal(amount):
+	health += amount
+	if health > max_health:
+		health = max_health
+	print("%s HP" % health)
 
 func _process(_delta):
 	#Test if there is an interactable object in front of the player
