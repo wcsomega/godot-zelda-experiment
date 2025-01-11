@@ -23,7 +23,7 @@ func on_heal(amount):
 	health += amount
 	if health > max_health:
 		health = max_health
-	print("%s HP" % health)
+	print("%s HP" % (health / 4.0))
 
 func _process(_delta):
 	#Test if there is an interactable object in front of the player
