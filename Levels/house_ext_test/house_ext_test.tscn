@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bahjcfxeskdh6"]
+[gd_scene load_steps=11 format=4 uid="uid://bahjcfxeskdh6"]
 
 [ext_resource type="TileSet" uid="uid://imqkpyhow56l" path="res://Tilemaps/house_ext.tres" id="1_0c6c6"]
 [ext_resource type="Script" path="res://Levels/house_ext_test/house_ext_test.gd" id="1_457ch"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b0gavf7wgv77w" path="res://player_cam.tscn" id="3_sn5gh"]
 [ext_resource type="PackedScene" uid="uid://b54d714vdi0t2" path="res://Entities/rock/rock.tscn" id="4_sqwy2"]
 [ext_resource type="PackedScene" uid="uid://cw06dyotjcb1a" path="res://Entities/shrub/shrub.tscn" id="5_n1hd4"]
+[ext_resource type="Script" path="res://Levels/house_ext_test/hud.gd" id="8_fgbd4"]
+[ext_resource type="PackedScene" uid="uid://ckd0g3yx7as1p" path="res://HUD/HealthBar/ui_heart.tscn" id="9_befps"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cpjy"]
 size = Vector2(16, 16)
@@ -86,5 +88,10 @@ position = Vector2(128, 128)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_3cpjy")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("8_fgbd4")
+
+[node name="UIHeart" parent="HUD" instance=ExtResource("9_befps")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
