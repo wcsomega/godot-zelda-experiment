@@ -1,14 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckd0g3yx7as1p"]
+[gd_scene load_steps=3 format=3 uid="uid://ckd0g3yx7as1p"]
 
 [ext_resource type="Texture2D" uid="uid://bxwb0l85ed2l" path="res://items_drops.png" id="1_2bftk"]
 [ext_resource type="Script" path="res://HUD/HealthBar/ui_heart.gd" id="2_ofalk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wx1py"]
-atlas = ExtResource("1_2bftk")
-region = Rect2(32, 16, 8, 8)
-
-[node name="Heart" type="TextureRect"]
-offset_right = 8.0
-offset_bottom = 8.0
-texture = SubResource("AtlasTexture_wx1py")
+[node name="Heart" type="Sprite2D"]
+texture = ExtResource("1_2bftk")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 16, 8, 8)
 script = ExtResource("2_ofalk")
