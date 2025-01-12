@@ -21,13 +21,9 @@ func change_health(new_health: int) -> void:
 
 func _process(delta: float) -> void:
 	if target_health > shown_health:
-		shown_health -= 1
+		shown_health += 1
 	if target_health < shown_health:
 		shown_health -= 1
 	for i in ui_hearts.size():
 		var ui_heart = ui_hearts[i]
 		ui_heart.amount = shown_health - (i * 4)
-	if Input.is_action_just_pressed("hp_up"):
-		change_health(target_health + 16)
-	if Input.is_action_just_pressed("hp_down"):
-		change_health(target_health - 16)
