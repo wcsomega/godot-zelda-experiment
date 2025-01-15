@@ -14,6 +14,10 @@ config/name="zelda-clone"
 run/main_scene="res://Levels/house_ext_test/house_ext_test.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
+[autoload]
+
+PlayerHealth="*res://player_health.gd"
+
 [display]
 
 window/size/viewport_width=640

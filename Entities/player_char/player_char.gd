@@ -10,12 +10,6 @@ enum Direction {
 var speed = 90
 const INTERACT_DISTANCE = 8.5
 
-var health = 20; #each heart is 4 hp so this is 10 hearts
-var max_hearts = 10;
-
-signal health_changed(new_health: int)
-signal max_hearts_changed(new_max_hearts: int)
-
 @onready var sprite = $AnimatedSprite2D
 @onready var interact_ray = $RayCast2D
 var last_direction = Direction.DOWN
@@ -23,24 +17,13 @@ var last_held_dir = Direction.DOWN
 var is_held_dir = false
 
 func on_heal(amount: int):
-	health = clamp(health + amount, 0, max_hearts * 4)
-	health_changed.emit(health)
-
-func _ready() -> void:
-	max_hearts_changed.emit(max_hearts)
-	health_changed.emit(health)
+	PlayerHealth.health += amount
 
 func _process(_delta):
 	if Input.is_action_just_pressed("max_hp_up"):
-		max_hearts = clamp(max_hearts + 1, 0, 20)
-		health = clamp(health, 0, max_hearts * 4)
-		max_hearts_changed.emit(max_hearts)
-		health_changed.emit(health)
+		PlayerHealth.max_hearts += 1
 	if Input.is_action_just_pressed("max_hp_down"):
-		max_hearts = clamp(max_hearts - 1, 0, 20)
-		health = clamp(health, 0, max_hearts * 4)
-		max_hearts_changed.emit(max_hearts)
-		health_changed.emit(health)
+		PlayerHealth.max_hearts -= 1
 	
 	#Test if there is an interactable object in front of the player
 	#if they are pressing the interact button, call the on_interact
