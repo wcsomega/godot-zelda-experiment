@@ -1,13 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://bahjcfxeskdh6"]
+[gd_scene load_steps=7 format=4 uid="uid://bahjcfxeskdh6"]
 
 [ext_resource type="TileSet" uid="uid://imqkpyhow56l" path="res://Tilemaps/house_ext.tres" id="1_0c6c6"]
 [ext_resource type="Script" path="res://Levels/house_ext_test/house_ext_test.gd" id="1_457ch"]
-[ext_resource type="PackedScene" uid="uid://bubwlqgalmnxg" path="res://Entities/player_char/player_char.tscn" id="2_c0sci"]
 [ext_resource type="PackedScene" uid="uid://jtrr7d3unpkb" path="res://Entities/sign/sign.tscn" id="3_gjaul"]
-[ext_resource type="PackedScene" uid="uid://b0gavf7wgv77w" path="res://player_cam.tscn" id="3_sn5gh"]
 [ext_resource type="PackedScene" uid="uid://b54d714vdi0t2" path="res://Entities/rock/rock.tscn" id="4_sqwy2"]
 [ext_resource type="PackedScene" uid="uid://cw06dyotjcb1a" path="res://Entities/shrub/shrub.tscn" id="5_n1hd4"]
-[ext_resource type="Script" path="res://Levels/house_ext_test/hud.gd" id="8_fgbd4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cpjy"]
 size = Vector2(16, 16)
@@ -25,13 +22,6 @@ tile_set = ExtResource("1_0c6c6")
 z_index = 2
 tile_map_data = PackedByteArray("AAAKAAcAAgAEAAAAAAAVAAcAAgAOAAAAAAAVABAAAgAOAAUAAAAKABAAAgAEAAUAAAALABAAAgAHAAUAAAAMABAAAgAHAAUAAAANABAAAgAHAAUAAAASABAAAgAHAAUAAAATABAAAgAHAAUAAAAUABAAAgAHAAUAAAAOAA8AAgAIAAQAAAAOABAAAgAIAAUAAAAPAA8AAgAJAAQAAAAPABAAAgAJAAUAAAAQAA8AAgAKAAQAAAAQABAAAgAKAAUAAAARAA8AAgALAAQAAAARABAAAgALAAUAAAAKAA8AAgAEAAQAAAAKAA4AAgAEAAMAAAAKAA0AAgAEAAMAAAAKAAwAAgAEAAMAAAAKAAsAAgAEAAMAAAAKAAoAAgAEAAMAAAAKAAkAAgAEAAMAAAAKAAgAAgAEAAMAAAAVAA4AAgAOAAMAAAAVAA0AAgAOAAMAAAAVAAwAAgAOAAMAAAAVAAsAAgAOAAMAAAAVAAoAAgAOAAMAAAAVAAkAAgAOAAMAAAAVAAgAAgAOAAMAAAAVAA8AAgAOAAQAAAANAAcAAgAHAAAAAAAOAAcAAgAHAAAAAAAPAAcAAgAHAAAAAAAQAAcAAgAHAAAAAAARAAcAAgAHAAAAAAASAAcAAgAHAAAAAAALAAcAAgAFAAAAAAAMAAcAAgAGAAAAAAATAAcAAgAMAAAAAAAUAAcAAgANAAAAAAANAAgAAgAHAAEAAAANAAwAAgAHAAEAAAASAAwAAgAHAAEAAAASAAgAAgAHAAEAAAAMAAgAAgAGAAEAAAAMAAkAAgAGAAEAAAAMAAoAAgAGAAEAAAAMAAsAAgAGAAEAAAAMAAwAAgAGAAEAAAATAAgAAgAMAAEAAAATAAkAAgAMAAEAAAATAAoAAgAMAAEAAAATAAsAAgAMAAEAAAATAAwAAgAMAAEAAAANAA0AAgALAAIAAAAOAA0AAgALAAIAAAAPAA0AAgALAAIAAAAQAA0AAgALAAIAAAARAA0AAgALAAIAAAASAA0AAgALAAIAAAATAA0AAgAMAAIAAAAMAA0AAgAGAAIAAAALAA0AAgAFAAIAAAALAA4AAgAFAAMAAAALAA8AAgAFAAQAAAAUAA0AAgANAAIAAAAUAA4AAgANAAMAAAAUAA8AAgANAAQAAAALAAgAAgAIAAMAAAALAAkAAgAIAAMAAAALAAoAAgAIAAMAAAALAAsAAgAIAAMAAAALAAwAAgAIAAMAAAAMAA4AAgAIAAMAAAAMAA8AAgAIAAMAAAANAA8AAgAIAAMAAAANAA4AAgAIAAMAAAAOAA4AAgAIAAMAAAAPAA4AAgAIAAMAAAAQAA4AAgAIAAMAAAARAA4AAgAIAAMAAAASAA4AAgAIAAMAAAASAA8AAgAIAAMAAAATAA8AAgAIAAMAAAATAA4AAgAIAAMAAAAUAAgAAgAIAAMAAAAUAAkAAgAIAAMAAAAUAAoAAgAIAAMAAAAUAAsAAgAIAAMAAAAUAAwAAgAIAAMAAAAOAAgAAgAIAAEAAAAPAAgAAgAIAAEAAAAQAAgAAgAIAAEAAAARAAgAAgAIAAEAAAARAAkAAgAIAAEAAAASAAkAAgAIAAEAAAASAAoAAgAIAAEAAAASAAsAAgAIAAEAAAARAAsAAgAIAAEAAAARAAwAAgAIAAEAAAAQAAwAAgAIAAEAAAAPAAwAAgAIAAEAAAAOAAwAAgAIAAEAAAAOAAsAAgAIAAEAAAANAAsAAgAIAAEAAAANAAkAAgAIAAEAAAANAAoAAgAIAAEAAAAOAAoAAgAIAAEAAAAOAAkAAgAIAAEAAAAPAAkAAgAIAAEAAAAQAAkAAgAIAAEAAAAQAAoAAgAIAAEAAAAPAAoAAgAIAAEAAAARAAoAAgAIAAEAAAAQAAsAAgAIAAEAAAAPAAsAAgAIAAEAAAA=")
 tile_set = ExtResource("1_0c6c6")
-
-[node name="Camera2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_sn5gh")]
-target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("2_c0sci")]
-z_index = 1
-position = Vector2(122, 224)
 
 [node name="sign" parent="." instance=ExtResource("3_gjaul")]
 position = Vector2(128, 192)
@@ -88,7 +78,7 @@ position = Vector2(128, 128)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_3cpjy")
 
-[node name="HUD" type="CanvasLayer" parent="."]
-script = ExtResource("8_fgbd4")
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(128, 160)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
