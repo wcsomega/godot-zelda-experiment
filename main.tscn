@@ -8,5 +8,8 @@
 script = ExtResource("1_hfuwf")
 
 [node name="PlayerCam" parent="." instance=ExtResource("2_82cay")]
+zoom = Vector2(2, 2)
 
 [node name="HUD" parent="." instance=ExtResource("3_wigto")]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
