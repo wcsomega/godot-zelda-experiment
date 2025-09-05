@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ckd0g3yx7as1p"]
 
 [ext_resource type="Texture2D" uid="uid://bxwb0l85ed2l" path="res://items_drops.png" id="1_2bftk"]
-[ext_resource type="Script" path="res://HUD/HealthBar/ui_heart.gd" id="2_ofalk"]
+[ext_resource type="Script" uid="uid://bcajwyjgu73p8" path="res://HUD/HealthBar/ui_heart.gd" id="2_ofalk"]
 
 [node name="Heart" type="Sprite2D"]
 texture = ExtResource("1_2bftk")

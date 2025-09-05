@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://c326kk5cyylnr"]
+[gd_scene load_steps=4 format=4 uid="uid://c326kk5cyylnr"]
 
 [ext_resource type="TileSet" uid="uid://imqkpyhow56l" path="res://Tilemaps/house_ext.tres" id="1_qb22q"]
 [ext_resource type="PackedScene" uid="uid://c8hpjj5bsrce1" path="res://entrance.tscn" id="2_5o0lc"]
+[ext_resource type="Script" uid="uid://d1bhp6vbirdpv" path="res://exit.gd" id="3_6mutm"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,6 +14,9 @@ tile_set = ExtResource("1_qb22q")
 [node name="Entrance" parent="." instance=ExtResource("2_5o0lc")]
 position = Vector2(128, 256)
 target_level = "res://Levels/house_ext_test/house_ext_test.tscn"
+exit_name = "HouseExit"
 
-[node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(128, 232)
+[node name="MainExit" type="Marker2D" parent="."]
+position = Vector2(128, 216)
+script = ExtResource("3_6mutm")
+metadata/_custom_type_script = "uid://d1bhp6vbirdpv"

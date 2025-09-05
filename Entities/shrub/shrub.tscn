@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cw06dyotjcb1a"]
 
-[ext_resource type="Script" path="res://Entities/shrub/shrub.gd" id="1_s64gi"]
+[ext_resource type="Script" uid="uid://cqiw33dti3bp0" path="res://Entities/shrub/shrub.gd" id="1_s64gi"]
 [ext_resource type="Texture2D" uid="uid://4wjtucew58cu" path="res://Tilemaps/house-ext.png" id="2_puljp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikf8q"]

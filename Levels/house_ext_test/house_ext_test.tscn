@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://bahjcfxeskdh6"]
+[gd_scene load_steps=7 format=4 uid="uid://bahjcfxeskdh6"]
 
 [ext_resource type="TileSet" uid="uid://imqkpyhow56l" path="res://Tilemaps/house_ext.tres" id="1_0c6c6"]
 [ext_resource type="PackedScene" uid="uid://jtrr7d3unpkb" path="res://Entities/sign/sign.tscn" id="3_gjaul"]
 [ext_resource type="PackedScene" uid="uid://b54d714vdi0t2" path="res://Entities/rock/rock.tscn" id="4_sqwy2"]
 [ext_resource type="PackedScene" uid="uid://cw06dyotjcb1a" path="res://Entities/shrub/shrub.tscn" id="5_n1hd4"]
+[ext_resource type="Script" uid="uid://d1bhp6vbirdpv" path="res://exit.gd" id="5_qdoee"]
 [ext_resource type="PackedScene" uid="uid://c8hpjj5bsrce1" path="res://entrance.tscn" id="6_kswx0"]
 
 [node name="Node2D" type="Node2D"]
@@ -68,9 +69,17 @@ position = Vector2(184, 160)
 [node name="shrub10" parent="." instance=ExtResource("5_n1hd4")]
 position = Vector2(184, 176)
 
-[node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(128, 160)
+[node name="default_spawn" type="Marker2D" parent="."]
+position = Vector2(220, 225)
+script = ExtResource("5_qdoee")
+metadata/_custom_type_script = "uid://d1bhp6vbirdpv"
 
 [node name="Entrance" parent="." instance=ExtResource("6_kswx0")]
 position = Vector2(128, 128)
 target_level = "res://Levels/house_int_test/house_int_test.tscn"
+exit_name = "MainExit"
+
+[node name="HouseExit" type="Marker2D" parent="."]
+position = Vector2(128, 160)
+script = ExtResource("5_qdoee")
+metadata/_custom_type_script = "uid://d1bhp6vbirdpv"

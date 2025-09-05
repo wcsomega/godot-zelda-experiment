@@ -32,7 +32,7 @@ func change_max_hearts(new_max_hearts: int) -> void:
 		ui_heart.position = Vector2(x*8, y*8)
 		add_child(ui_heart)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if target_health > shown_health:
 		shown_health += 1
 	if target_health < shown_health:

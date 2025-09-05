@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b54d714vdi0t2"]
 
 [ext_resource type="Texture2D" uid="uid://4wjtucew58cu" path="res://Tilemaps/house-ext.png" id="1_iyhnn"]
-[ext_resource type="Script" path="res://Entities/rock/rock.gd" id="1_m2i18"]
+[ext_resource type="Script" uid="uid://din848gf7ce43" path="res://Entities/rock/rock.gd" id="1_m2i18"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikf8q"]
 size = Vector2(16, 16)
