@@ -16,9 +16,14 @@ const INTERACT_DISTANCE = 8.5
 var last_direction = Direction.DOWN
 var last_held_dir = Direction.DOWN
 var is_held_dir = false
+var is_carry = false
 
 func on_heal(amount: int):
 	PlayerHealth.health += amount
+
+func start_carry():
+	is_carry = true
+	$CarrySlot.visible = true
 
 func _process(_delta):
 	if Input.is_action_just_pressed("max_hp_up"):
@@ -29,10 +34,14 @@ func _process(_delta):
 	#Test if there is an interactable object in front of the player
 	#if they are pressing the interact button, call the on_interact
 	#method on the interactable object
-	if Input.is_action_just_pressed("interact") && interact_ray.is_colliding():
-		var o = interact_ray.get_collider()
-		if o.has_method("on_interact"):
-			o.on_interact()
+	if Input.is_action_just_pressed("interact"):
+		if is_carry:
+			is_carry = false
+			$CarrySlot.visible = false
+		elif interact_ray.is_colliding():
+			var o = interact_ray.get_collider()
+			if o.has_method("on_interact"):
+				o.on_interact(self)
 	
 	#This checks if a previously held direction has been released
 	if is_held_dir:
@@ -116,4 +125,3 @@ func _process(_delta):
 			interact_ray.target_position = Vector2.LEFT * INTERACT_DISTANCE
 		Direction.RIGHT:
 			interact_ray.target_position = Vector2.RIGHT * INTERACT_DISTANCE
- 

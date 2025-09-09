@@ -7,7 +7,7 @@ var textbox_scene: PackedScene
 func _ready() -> void:
 	textbox_scene = preload("res://textbox.tscn")
 
-func on_interact():
+func on_interact(_player: Player):
 	print("read sign: %s" % text)
 	var tb = textbox_scene.instantiate()
 	add_child(tb)
