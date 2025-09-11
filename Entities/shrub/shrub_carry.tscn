@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://wtjovffdfui4"]
+
+[ext_resource type="Texture2D" uid="uid://4wjtucew58cu" path="res://Tilemaps/house-ext.png" id="1_fbsub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_331su"]
+atlas = ExtResource("1_fbsub")
+region = Rect2(48, 96, 16, 16)
+
+[node name="ShrubCarry" type="Sprite2D"]
+texture = SubResource("AtlasTexture_331su")

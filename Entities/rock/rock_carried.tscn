@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd2nlivpwcop6"]
+
+[ext_resource type="Texture2D" uid="uid://4wjtucew58cu" path="res://Tilemaps/house-ext.png" id="1_mj6ei"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij5mx"]
+atlas = ExtResource("1_mj6ei")
+region = Rect2(48, 80, 16, 16)
+
+[node name="Rock" type="Sprite2D"]
+texture = SubResource("AtlasTexture_ij5mx")

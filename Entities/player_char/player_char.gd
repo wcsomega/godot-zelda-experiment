@@ -17,13 +17,16 @@ var last_direction = Direction.DOWN
 var last_held_dir = Direction.DOWN
 var is_held_dir = false
 var is_carry = false
+var carried_item: Node2D
 
 func on_heal(amount: int):
 	PlayerHealth.health += amount
 
-func start_carry():
+func start_carry(ent: Node2D):
 	is_carry = true
 	$CarrySlot.visible = true
+	carried_item = ent
+	$CarrySlot.add_child(ent)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("max_hp_up"):
@@ -38,6 +41,7 @@ func _process(_delta):
 		if is_carry:
 			is_carry = false
 			$CarrySlot.visible = false
+			carried_item.queue_free()
 		elif interact_ray.is_colliding():
 			var o = interact_ray.get_collider()
 			if o.has_method("on_interact"):
